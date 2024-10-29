@@ -26,6 +26,7 @@ body {
 	#control {
 		top: unset !important;
 		bottom: 0 !important;
+		
 	}
 }
 #control {
@@ -45,6 +46,9 @@ body {
 	}
 	#control > label {
 		width: 20rem
+	}
+	#control {
+		padding: .5rem;
 	}
 }
 #control_btns > button[id^="picker"] {
