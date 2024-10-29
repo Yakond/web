@@ -4,7 +4,7 @@
     let more_buttons = await fetch("./assets/additionals.json").then(res=>res.json());
 
     const control = document.getElementById("control")
-    const splitter = document.createElement("splitter")
+    const splitter = document.createElement("_")
     if (more_buttons.length > 0) {
         try {
             splitter.setAttribute("id", "btn/splitter")
@@ -12,7 +12,7 @@
             let i = 0;
             for (const {type, filename, label} of more_buttons) {
                 i++;
-                const button = document.createElement()
+                const button = document.createElement("button")
                 button.innerText = label;
                 switch (type) {
                     case "file":
