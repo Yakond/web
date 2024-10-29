@@ -6,7 +6,9 @@
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const filesets_datalist = document.getElementById("filesets")
 	for (let key of Object.keys(filesets)) {
-		filesets_datalist.push()
+		const option = document.createElement("option")
+		option.setAttribute("value", key)
+		filesets_datalist.append(option)
 	}
 	const control = document.getElementById("control")
 	const splitter = document.createElement("_")
