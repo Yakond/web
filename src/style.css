@@ -120,6 +120,7 @@ body {
 	height: 1rem;
 	background: currentColor;
 	animation: lds-grid 3s linear infinite;
+	filter: blur(4px);
   }
   
   .lds-grid div:nth-child(1) { animation-delay: 0s; }
