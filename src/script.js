@@ -10,7 +10,7 @@
 		option.setAttribute("value", key)
 		filesets_datalist.append(option)
 	}
-	fileset_buttons = filesets[fileset?.buttons] ?? []
+	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
 	const splitter = document.createElement("_")
 	function updateUrl(){
