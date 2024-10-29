@@ -27,7 +27,7 @@
                         button.setAttribute("id", "btn/url/"+i)
                         button.addEventListener("click", () => location.replace(props?.url));
                         break
-                    case _:
+                    default:
                         const div = document.createElement("invalid_button")
                         div.innerText = JSON.stringify({type,props}, 0, 4)
                         control.append(button)
