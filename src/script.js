@@ -10,10 +10,14 @@
 		option.setAttribute("value", key)
 		filesets_datalist.append(option)
 	}
+	const control_btns = document.getElementById("control_btns")
+
 	const fileset_input = document.getElementById("fileset_input");
 	const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 	fileset_button.addEventListener("click", () => {
-		alert(fileset_input.value)
+		control_btns.innerHTML = "";
+		const fileset = filesets[fileset_input];
+		addFilesetButtons(fileset, control_btns)
 	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
@@ -26,7 +30,7 @@
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
 	if (filename) showImage(filename)
-    function updateButtons(fileset_buttons, control) {
+    function addFilesetButtons(fileset_buttons, control) {
 		if (fileset_buttons.length > 0) {
 		try {
 			control.append(document.createElement("_"))
@@ -67,5 +71,5 @@
 			console.error(e)
 		}}
     }
-	updateButtons(fileset_buttons, document.getElementById("control_btns"))
+	addFilesetButtons(fileset_buttons, control_btns)
 })()
