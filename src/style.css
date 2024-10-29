@@ -71,6 +71,7 @@ body {
 		justify-content: space-between;
 	}
 	#control {
+		width: unset !important;
 		padding: .5rem;
 	}
 }
