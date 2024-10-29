@@ -32,12 +32,12 @@ body {
 
 @media (max-width: 768px) and (orientation: portrait) {
     #view {
-		max-height: 80dvh !important;
+		max-height: calc(100dvh - min(15rem, 15dvh)) !important;
 	}
 	#control {
 		top: unset !important;
 		bottom: 0 !important;
-		height: 15dvh !important;
+		height: min(15rem, 15dvh) !important;
 		flex-direction: row !important;
 		width: 100dvw;
 	}
