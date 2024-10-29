@@ -23,7 +23,6 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const getFileset = (fileset) => filesets[fileset]
 
-	filesets_span.innerText = fileset
 	for (let key of Object.keys(filesets)) {
 		const option = document.createElement("option")
 		option.setAttribute("value", key)
@@ -36,9 +35,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 		
 		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
 		else showFileset(new_fileset)
-	})
-	const control = document.getElementById("control")
-	
+	})	
 
 	if (filename) showImage(filename)
 	if (fileset) showFileset(fileset);
