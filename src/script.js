@@ -11,7 +11,7 @@
             let i = 0;
             for (let {type="invalid", props={}} of additional_nav) {
                 i++;
-                const el_type = type.starsWith("#")
+                const el_type = type?.starsWith?.("#")
                 ? type.slice(1, type.length)
                 : ["url", "file"].includes(type)
                   ? "button"
