@@ -43,6 +43,7 @@ body {
 	#control_btns > button[id^="picker"], #control > label > :is(input,button) {
 		padding: .35rem;
 		height: 4rem;
+		border-radius: 99999999999999999999999999999px;
 	}
 	#control > label {
 		width: 20rem
