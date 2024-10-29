@@ -28,9 +28,9 @@
                         button.addEventListener("click", () => location.replace(props?.url));
                         break
                     default:
-                        const div = document.createElement("invalid_button")
+                        const div = document.createElement("invalid")
                         div.innerText = JSON.stringify({type,props}, 0, 4)
-                        control.append(button)
+                        control.append(div)
                         continue;
                 }
                 if (type) control.append(button)
