@@ -26,9 +26,8 @@
 
 		fileset = new_fileset;
 		updateUrl({fileset});
-		addFilesetButtons(fileset, control_btns)
+		addFilesetButtons(fileset.buttons, control_btns)
 	})
-	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
 	function updateUrl(modifieds={}){
 		for (const key of Object.keys(modifieds)) {
@@ -84,7 +83,9 @@
     }
 	if (filename) showImage(filename)
 	if (fileset) {
-		addFilesetButtons(fileset_buttons, control_btns)
+		if (fileset?.buttons) {
+			addFilesetButtons(fileset?.buttons, control_btns)
+		}
 		if (fileset.default_filename) {
 			filename = fileset.default_filename;
 			showImage(filename)
