@@ -16,7 +16,8 @@
 	const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 	fileset_button.addEventListener("click", () => {
 		control_btns.innerHTML = "";
-		const fileset = filesets[fileset_input];
+		const fileset = filesets[fileset_input.value];
+		if (!fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
 		addFilesetButtons(fileset, control_btns)
 	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
