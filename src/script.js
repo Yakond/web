@@ -31,7 +31,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 	fileset_button.addEventListener("click", () => {
 		if (!fileset_input.value) return;
 
-		const new_fileset = filesets[fileset_input.value];
+		const new_fileset = fileset_input.value;
 		
 		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
 		else showFileset(new_fileset)
