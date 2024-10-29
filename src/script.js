@@ -35,7 +35,7 @@ exports = {};
 
 	function showImage(filename) {
 		if (!filename) alert("Filenamen't")
-		image_elem.setAttribute("src", `url('./assets/viewer/${filename}')`)
+		image_elem.setAttribute("src", `./assets/viewer/${filename}`)
 	}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
