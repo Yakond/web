@@ -32,7 +32,7 @@ new_session = true;
 	})
 
 	if (params.get("set")) showFileset(params.get("set"));
-	if (!params.get("set") && params.get("name")) showImage(params.get("name"))
+	if (new_session && params.get("name")) showImage(params.get("name"))
 
 		function showImage(filename) {
 			if (!filename) {
