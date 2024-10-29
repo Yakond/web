@@ -56,7 +56,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 					case "file":
 						button.setAttribute("id", "btn/file/"+i)
 						button.addEventListener("click", () => {
-							params.set("name", props?.url);
+							params.set("name", props?.filename);
 							updateUrl();
 							showImage(params.get("name"));
 						})
