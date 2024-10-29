@@ -1,6 +1,5 @@
 {
-	"pr1": {
-		"name": "ПР 1",
+	"ПР 1": {
 		"default_filename": "29.10/Галузі Психології.png",
 		"buttons": [{
 				"type": "file",

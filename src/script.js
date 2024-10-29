@@ -5,6 +5,8 @@
 	let fileset = params.get("set");
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const filesets_datalist = document.getElementById("filesets")
+	const filesets_span = document.getElementById("fileset_choice")
+	filesets_span.innerText = fileset
 	for (let key of Object.keys(filesets)) {
 		const option = document.createElement("option")
 		option.setAttribute("value", key)
@@ -19,6 +21,8 @@
 		const fileset = filesets[fileset_input.value];
 		
 		if (!fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
+		filesets_span.innerText = fileset
+		console.log(fileset)
 		addFilesetButtons(fileset, control_btns)
 	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
