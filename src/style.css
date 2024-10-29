@@ -40,10 +40,11 @@ body {
 	width: 15rem;
 }
 @media (pointer: coarse) {
-	#control_btns > button[id^="picker"], #control > label > :is(input,button) {
+	#control_btns > button[id^="picker"], #control_btns > invalid, #control > label > :is(input,button) {
 		padding: .35rem;
 		height: 4rem;
 		border-radius: 99999999999999999999999999999px;
+		border-color: gray;
 	}
 	#control > label {
 		width: 20rem
