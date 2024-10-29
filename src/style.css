@@ -44,7 +44,8 @@ body {
 		padding: .35rem;
 		height: 4rem;
 		border-radius: 99999999999999999999999999999px;
-		border-color: gray;
+		border-color: #6600ff;
+		border-width: .1rem;
 	}
 	#control > label {
 		width: 20rem
