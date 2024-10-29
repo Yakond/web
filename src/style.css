@@ -32,6 +32,7 @@ body {
 		bottom: 0 !important;
 		height: 20dvh !important;
 		flex-direction: row !important;
+		width: 100dvw;
 	}
 	#control_btns {
 		flex-direction: row !important;
@@ -45,11 +46,8 @@ body {
 #control {
 	position: fixed;
 	top: 0;
-	left: 0;min-width: 100dvw;
-	width: auto;
-}
-#control_btns {
-	min-width: 100%;
+	left: 0;
+	width: 15rem
 }
 #control > label {
 	width: 15rem;
@@ -61,7 +59,7 @@ body {
 		border-radius: 99999999999999999999999999999px;
 	}
 	#control > label {
-		width: 20rem
+		width: 20rem !important;
 	}
 	#control {
 		padding: .5rem;
