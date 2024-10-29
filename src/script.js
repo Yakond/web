@@ -9,6 +9,7 @@ const filesets_span = document.getElementById("fileset_choice")
 const fileset_input = document.getElementById("fileset_input");
 const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 exports = {};
+new_session = true;
 (async ()=>{
 	const image_elem = document.querySelector("#view > img")
 	const control_btns = document.getElementById("control_btns")
@@ -26,20 +27,41 @@ exports = {};
 
 		const new_fileset = fileset_input.value;
 		
-		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
+		if (!new_fileset) return alert(`Пакета файлів з назвою <<${fileset_input.value}>> немає`)
 		else showFileset(new_fileset)
 	})
 
 	if (params.get("set")) showFileset(params.get("set"));
 	if (!params.get("set") && params.get("name")) showImage(params.get("name"))
 
-	function showImage(filename) {
-		if (!filename) alert("Filenamen't")
-		image_elem.setAttribute("src", `./assets/viewer/${filename}`)
-	}
-	function resetImage() {
+		function showImage(filename) {
+			if (!filename) {
+				resetImage();
+				return alert("Filename not provided");
+			}
+			image_elem.classList.remove("hidden");
+			image_elem.setAttribute("src", `./assets/viewer/${filename}`);
 		
-	}
+			// Remove the loading spinner if it exists
+			const waiter = document.querySelector(".lds-grid");
+			if (waiter) waiter.remove();
+		}
+		
+		function resetImage() {
+			// Clear the image and add hidden class
+			image_elem.setAttribute("src", "");
+			image_elem.classList.add("hidden");
+		
+			// Create and insert the loading spinner into the `view` element
+			const waiter = document.createElement("div");
+			waiter.classList.add("lds-grid");
+			waiter.innerHTML = `
+				<div></div><div></div><div></div>
+				<div></div><div></div><div></div>
+				<div></div><div></div><div></div>
+			`;
+			view.appendChild(waiter);
+		}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
 		if (fileset_buttons.length > 0) {
@@ -90,11 +112,12 @@ exports = {};
 		if (filesetData?.buttons) {
 			swapFilesetButtons(filesetData.buttons, control_btns)
 		}
-		if (filesetData?.default_filename) {
+		if (!new_session && filesetData?.default_filename) {
 			params.set("name", filesetData.default_filename);
 			showImage(params.get("name"))
 			updateUrl();
-		}	
+		}
+
 	}
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
