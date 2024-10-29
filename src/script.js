@@ -7,8 +7,8 @@ function useImage(filename, type) {
 }
 useImage(filename, "png")
 const buttons = {
-    png: document.getElementById("btn/png"),
-    svg: document.getElementById("btn/svg")
+    png: document.getElementById("btn/picker/png"),
+    svg: document.getElementById("btn/picker/svg")
 }
 buttons.png.addEventListener("click", () => useImage(filename, "png"))
 buttons.svg.addEventListener("click", () => useImage(filename, "svg"))
