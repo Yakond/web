@@ -76,8 +76,8 @@
 	if (fileset) {
 		addFilesetButtons(fileset_buttons, control_btns)
 		if (fileset.default_filename) {
-			showImage(fileset.default_filename)
-			filename = props?.url;
+			filename = fileset.default_filename;
+			showImage(filename)
 			updateUrl({filename});
 		}		
 	}
