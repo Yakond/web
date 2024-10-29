@@ -27,6 +27,9 @@ body {
 #control {
 	display: flex;
 	flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 #control > label {
 	width: 15rem;
