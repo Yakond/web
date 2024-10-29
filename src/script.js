@@ -1,11 +1,7 @@
 const url = new URL(window.location.href)
 const params = new URLSearchParams(url.search);
-let filename = params.get("name");
 let fileset = params.get("set");
-function updateUrl(modifieds = {}) {
-	for (const key of Object.keys(modifieds)) {
-		params.set(key, modifieds[key]);
-	}
+function updateUrl() {
 	url.search = params.toString();
 	window.history.pushState({}, '', url);
 }
@@ -36,7 +32,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 		else showFileset(new_fileset)
 	})	
 
-	if (filename) showImage(filename)
+	if (params.get("name")) showImage(params.get("name"))
 	if (fileset) showFileset(fileset);
 
 	function showImage(filename) {
@@ -61,9 +57,9 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 					case "file":
 						button.setAttribute("id", "btn/file/"+i)
 						button.addEventListener("click", () => {
-							filename = props?.url;
-							updateUrl({filename});
-							showImage(filename);
+							params.set("name", props?.url);
+							updateUrl();
+							showImage(params.get("name"));
 						})
 						break;
 					case "url":
@@ -93,9 +89,9 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 			swapFilesetButtons(filesetData.buttons, control_btns)
 		}
 		if (filesetData?.default_filename) {
-			filename = filesetData.default_filename;
-			showImage(filename)
-			updateUrl({filename});
+			params.set("name", filesetData.default_filename);
+			showImage(params.get("name"))
+			updateUrl();
 		}	
 	}
 })()
