@@ -10,7 +10,7 @@ const fileset_input = document.getElementById("fileset_input");
 const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 exports = {};
 (async ()=>{
-	const image_elem = document.querySelector("#view > image")
+	const image_elem = document.querySelector("#view > img")
 	const control_btns = document.getElementById("control_btns")
 
 	// get filesets
