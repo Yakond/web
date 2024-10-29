@@ -10,23 +10,26 @@ body {
 	display: flex;
 }
 #view {
-	height: 100dvh !important;
-	width: 95dvw !important;
-	background-size: contain;
-	background-repeat: no-repeat;
+	width: 100dvw !important;
+	display: flex;
+	justify-content: center;
+}
+#view > img {
+	max-height: 100%;
+	max-width: 100%;
 }
 @media (max-width: 768px) and (orientation: portrait) {
 	body {
 		flex-direction: column-reverse;
 	}
     #view {
-		height: 95dvh !important;
-		width: 100dvw !important;
+		height: 80dvh !important;
 	}
 	#control {
 		top: unset !important;
 		bottom: 0 !important;
-		
+		height: 20dvh !important;
+		flex-direction: row;
 	}
 }
 #control {
