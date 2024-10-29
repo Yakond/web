@@ -57,7 +57,7 @@ body {
 	width: 17.5rem
 }
 #control > label {
-	min-width: 17.5rem;
+	width: 17.5rem;
 }
 @media (pointer: coarse) {
 	#control_btns > button[id^="btn"], #control_btns > invalid, #control > label > div > :is(input,button) {
