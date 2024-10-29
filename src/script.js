@@ -1,46 +1,51 @@
+const url = new URL(window.location.href)
+const params = new URLSearchParams(url.search);
+let filename = params.get("name");
+let fileset = params.get("set");
+function updateUrl(modifieds={}){
+	for (const key of Object.keys(modifieds)) {
+		params[key] = modifieds[key]
+	}
+	url.params = params;
+	window.location.updateUrl(url)
+}
+
+const filesets_datalist = document.getElementById("filesets")
+const filesets_span = document.getElementById("fileset_choice")
+const fileset_input = document.getElementById("fileset_input");
+const fileset_button = document.querySelector("label:has(input#fileset_input) button");
+
 (async ()=>{
-	const url = new URL(window.location.href)
-	const params = new URLSearchParams(url.search);
-	let filename = params.get("name");
-	let fileset = params.get("set");
+	const view = document.getElementById("view")
+	const control_btns = document.getElementById("control_btns")
+
+	// get filesets
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
-	const filesets_datalist = document.getElementById("filesets")
-	const filesets_span = document.getElementById("fileset_choice")
+	const getFileset = (fileset) => filesets[fileset]
+
 	filesets_span.innerText = fileset
 	for (let key of Object.keys(filesets)) {
 		const option = document.createElement("option")
 		option.setAttribute("value", key)
 		filesets_datalist.append(option)
 	}
-	const control_btns = document.getElementById("control_btns")
-
-	const fileset_input = document.getElementById("fileset_input");
-	const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 	fileset_button.addEventListener("click", () => {
 		control_btns.innerHTML = "";
 		const new_fileset = filesets[fileset_input.value];
 		
-		if (!new_fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
-		filesets_span.innerText = fileset_input.value
-		console.log(new_fileset)
-
-		fileset = new_fileset;
-		updateUrl({fileset});
-		addFilesetButtons(fileset.buttons, control_btns)
+		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
+		else showFileset(new_fileset)
 	})
 	const control = document.getElementById("control")
-	function updateUrl(modifieds={}){
-		for (const key of Object.keys(modifieds)) {
-			params[key] = modifieds[key]
-		}
-		url.params = params;
-		window.location.updateUrl(url)
-	}
-	const view = document.getElementById("view")
+	
+
+	if (filename) showImage(filename)
+	if (fileset) showFileset(fileset);
+
 	function showImage(filename) {
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
-    function addFilesetButtons(fileset_buttons, control) {
+    function swapFilesetButtons(fileset_buttons, control) {
 		if (fileset_buttons.length > 0) {
 		try {
 			control.append(document.createElement("_"))
@@ -81,15 +86,19 @@
 			console.error(e)
 		}}
     }
-	if (filename) showImage(filename)
-	if (fileset) {
-		if (fileset?.buttons) {
-			addFilesetButtons(fileset?.buttons, control_btns)
+	function showFileset(filesetName) {
+		filesets_span.innerText = filesetName
+		fileset = filesetName;
+		updateUrl({fileset});
+		const filesetData = getFileset(filesetName)
+		if (filesetData?.buttons) {
+			swapFilesetButtons(filesetData.buttons, control_btns)
 		}
-		if (fileset.default_filename) {
-			filename = fileset.default_filename;
+		if (filesetData?.default_filename) {
+			filename = filesetData.default_filename;
 			showImage(filename)
 			updateUrl({filename});
-		}		
+		}	
 	}
 })()
+
