@@ -17,12 +17,13 @@
 	fileset_button.addEventListener("click", () => {
 		control_btns.innerHTML = "";
 		const fileset = filesets[fileset_input.value];
+		
 		if (!fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
 		addFilesetButtons(fileset, control_btns)
 	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
-	function updateUrl(){
+	function updateUrl(...args){
 		url.params = params;
 		window.location.updateUrl(url)
 	}
@@ -49,7 +50,7 @@
 						button.setAttribute("id", "btn/file/"+i)
 						button.addEventListener("click", () => {
 							filename = props?.url;
-							updateUrl();
+							updateUrl({filename});
 							showImage(filename);
 						})
 						break;
@@ -74,6 +75,10 @@
 	if (filename) showImage(filename)
 	if (fileset) {
 		addFilesetButtons(fileset_buttons, control_btns)
-		showImage(fileset.default_filename)
+		if (fileset.default_filename) {
+			showImage(fileset.default_filename)
+			filename = props?.url;
+			updateUrl({filename});
+		}		
 	}
 })()
