@@ -24,9 +24,6 @@ body {
 	max-width: 100dvw;
 }
 @media (max-width: 768px) and (orientation: portrait) {
-	body {
-		flex-direction: column-reverse;
-	}
     #view {
 		height: 80dvh !important;
 	}
@@ -34,22 +31,21 @@ body {
 		top: unset !important;
 		bottom: 0 !important;
 		height: 20dvh !important;
-		flex-direction: row;
+		flex-direction: row !important;
 	}
 	#control_btns {
-		flex-direction: row;
+		flex-direction: row !important;
 	}
 }
-#control {
+
+#control, #control_btns {
 	display: flex;
 	flex-direction: column;
-    position: fixed;
+}
+#control {
+	position: fixed;
 	top: 0;
 	left: 0;
-}
-#control_btns {
-	display: flex;
-	flex-direction: column;
 }
 #control > label {
 	width: 15rem;
