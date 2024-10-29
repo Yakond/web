@@ -8,7 +8,7 @@ const filesets_datalist = document.getElementById("filesets")
 const filesets_span = document.getElementById("fileset_choice")
 const fileset_input = document.getElementById("fileset_input");
 const fileset_button = document.querySelector("label:has(input#fileset_input) button");
-
+exports = {}
 (async ()=>{
 	const view = document.getElementById("view")
 	const control_btns = document.getElementById("control_btns")
@@ -16,7 +16,6 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 	// get filesets
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const getFileset = (fileset) => filesets[fileset]
-
 	for (let key of Object.keys(filesets)) {
 		const option = document.createElement("option")
 		option.setAttribute("value", key)
@@ -58,7 +57,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 						button.addEventListener("click", () => {
 							params.set("name", props?.filename);
 							updateUrl();
-							showImage(params.get("name"));
+							showImage(decodeURIComponent(params.get("name")));
 						})
 						break;
 					case "url":
@@ -93,5 +92,6 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 			updateUrl();
 		}	
 	}
+	exports = {getFileset, showImage, swapFilesetButtons, showFileset}
 })()
 
