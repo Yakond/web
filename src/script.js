@@ -3,7 +3,7 @@ const filename = params.get("filename");
 // const control = document.getElementById("control")
 const view = document.getElementById("view")
 function useImage(filename, type) {
-    view.style.backgroundImage = `url(./assets/${filename}.${type})`
+    view.style.backgroundImage = `url(./assets/viewer/${filename}.${type})`
 }
 useImage(filename, "png")
 const buttons = {
