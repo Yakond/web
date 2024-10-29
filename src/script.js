@@ -21,9 +21,9 @@
 		const new_fileset = filesets[fileset_input.value];
 		
 		if (!new_fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
-		filesets_span.innerText = new_fileset
+		filesets_span.innerText = fileset_input.value
 		console.log(new_fileset)
-		
+
 		fileset = new_fileset;
 		updateUrl({fileset});
 		addFilesetButtons(fileset, control_btns)
