@@ -33,7 +33,7 @@
                         control.append(button)
                         continue;
                 }
-                control.append(button)
+                if (type) control.append(button)
             }
         } catch (e) {
             console.error(e)
