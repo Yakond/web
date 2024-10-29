@@ -15,7 +15,7 @@ body {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-@media (max-width: 768px) or (orientation: portrait) {
+@media (max-width: 768px) and (orientation: portrait) {
 	body {
 		flex-direction: column-reverse;
 	}
