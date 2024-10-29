@@ -2,14 +2,13 @@ const url = new URL(window.location.href)
 const params = new URLSearchParams(url.search);
 let filename = params.get("name");
 let fileset = params.get("set");
-function updateUrl(modifieds={}){
+function updateUrl(modifieds = {}) {
 	for (const key of Object.keys(modifieds)) {
-		params[key] = modifieds[key]
+		params.set(key, modifieds[key]);
 	}
-	url.params = params;
-	window.location.updateUrl(url)
+	url.search = params.toString();
+	window.history.pushState({}, '', url);
 }
-
 const filesets_datalist = document.getElementById("filesets")
 const filesets_span = document.getElementById("fileset_choice")
 const fileset_input = document.getElementById("fileset_input");
