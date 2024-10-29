@@ -23,13 +23,17 @@ body {
 		height: 95dvh !important;
 		width: 100dvw !important;
 	}
+	#control {
+		top: unset;
+		bottom: 0;
+	}
 }
 #control {
 	display: flex;
 	flex-direction: column;
     position: fixed;
-    bottom: 0;
-    left: 0;
+	top: 0;
+	left: 0;
 }
 #control > label {
 	width: 15rem;
