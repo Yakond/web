@@ -18,16 +18,22 @@
 	const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 	fileset_button.addEventListener("click", () => {
 		control_btns.innerHTML = "";
-		const fileset = filesets[fileset_input.value];
+		const new_fileset = filesets[fileset_input.value];
 		
-		if (!fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
-		filesets_span.innerText = fileset
-		console.log(fileset)
+		if (!new_fileset) alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
+		filesets_span.innerText = new_fileset
+		console.log(new_fileset)
+		
+		fileset = new_fileset;
+		updateUrl({fileset});
 		addFilesetButtons(fileset, control_btns)
 	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
-	function updateUrl(...args){
+	function updateUrl(modifieds={}){
+		for (const key of Object.keys(modifieds)) {
+			params[key] = modifieds[key]
+		}
 		url.params = params;
 		window.location.updateUrl(url)
 	}
