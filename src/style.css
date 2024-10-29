@@ -71,8 +71,9 @@ body {
 		justify-content: space-between;
 	}
 	#control {
-		width: unset !important;
+	    width: calc(100dvw - 1rem) !important;
 		padding: .5rem;
+		overflow-x: scroll;
 	}
 }
 #control > label > div > :is(input,button) {
