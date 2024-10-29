@@ -1,28 +1,36 @@
 (async ()=>{
     const params = new URLSearchParams(new URL(window.location.href).search);
     const filename = params.get("filename");
-    let more_buttons = await fetch("./assets/additionals.json").then(res=>res.json());
+    let additional_nav = await fetch("./assets/additionals.json").then(res=>res.json());
 
     const control = document.getElementById("control")
     const splitter = document.createElement("_")
-    if (more_buttons.length > 0) {
+    if (additional_nav.length > 0) {
         try {
             control.append(splitter)
             let i = 0;
-            for (const {type, filename, label} of more_buttons) {
+            for (let {type="invalid", props={}} of additional_nav) {
                 i++;
-                const button = document.createElement("button")
-                button.innerText = label;
+                const el_type = type.starsWith("#")
+                ? type.slice(1, type.length)
+                : ["url", "file"].includes(type)
+                  ? "button"
+                  : undefined
+                const button = document.createElement(el_type)
+                button.innerText = props?.label;
                 switch (type) {
                     case "file":
                         button.setAttribute("id", "btn/file/"+i)
-                        button.addEventListener("click", () => showImage(filename, "png"));
+                        button.addEventListener("click", () => showImage(props?.filename, "png"));
                         break;
                     case "url":
                         button.setAttribute("id", "btn/url/"+i)
-                        button.addEventListener("click", () => location.replace(button.url));
+                        button.addEventListener("click", () => location.replace(props?.url));
                         break
                     case _:
+                        const div = document.createElement("invalid_button")
+                        div.innerText = JSON.stringify({type,props}, 0, 4)
+                        control.append(button)
                         continue;
                 }
                 control.append(button)

@@ -1,5 +1,18 @@
 [{
+    "type": "#h2",
+    "props": {
+        "label": "привіт"
+    }
+},{
     "type": "file",
-    "filename": "2",
-    "label": "Hello"
+    "props": {
+        "filename": "2",
+        "label": "Привіт"
+    }
+},{
+    "type": "MEOW",
+    "props": {
+        "filename": "2",
+        "label": "Привіт"
+    }
 }]
