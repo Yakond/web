@@ -21,7 +21,7 @@
                 switch (type) {
                     case "file":
                         button.setAttribute("id", "btn/file/"+i)
-                        button.addEventListener("click", () => showImage(props?.filename, "png"));
+                        button.addEventListener("click", () => (filename = props?.url, showImage(props?.filename, "png")));
                         break;
                     case "url":
                         button.setAttribute("id", "btn/url/"+i)
