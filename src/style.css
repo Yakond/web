@@ -44,8 +44,6 @@ body {
 		padding: .35rem;
 		height: 4rem;
 		border-radius: 99999999999999999999999999999px;
-		border-color: #6600ff;
-		border-width: .1rem;
 	}
 	#control > label {
 		width: 20rem
@@ -54,10 +52,16 @@ body {
 		padding: .5rem;
 	}
 }
+#control > label > :is(input,button) {
+	border-color: #6600ff;
+	border-width: .1rem;
+}
 #control_btns > button[id^="picker"] {
 	padding: .25rem;
 	margin: .2rem;
 	height: 2rem;
+	border-color: #6600ff;
+	border-width: .1rem;
 }
 #control_btns > _ {
 	margin-block: .1rem;
