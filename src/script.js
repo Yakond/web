@@ -1,7 +1,7 @@
 (async ()=>{
     const params = new URLSearchParams(new URL(window.location.href).search);
     const filename = params.get("filename");
-    let more_buttons = await fetch();
+    let more_buttons = await fetch("./assets/additionals.json");
 
     const control = document.getElementById("control")
     const splitter = document.createElement("splitter")
