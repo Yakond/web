@@ -10,6 +10,11 @@
 		option.setAttribute("value", key)
 		filesets_datalist.append(option)
 	}
+	const fileset_input = document.getElementById("fileset_input");
+	const fileset_button = document.querySelector("label:has(input#fileset_input) button");
+	fileset_button.addEventListener("click", () => {
+		alert(fileset_input.value)
+	})
 	const fileset_buttons = filesets[fileset?.buttons] ?? []
 	const control = document.getElementById("control")
 	function updateUrl(){

@@ -18,8 +18,8 @@
             Обраний пакет файлів: <span id="fileset_choice">Ніякий</span>
             <input type="text" id="fileset_input" placeholder="Оберіть щось..." autocapitalize="off" list="filesets">
             <datalist id="filesets"></datalist>
-            <button onclick="displayInput()" aria-controls="fileset_input" aria-label="Показати">Показати</button>
-        </label>
+            <button aria-controls="fileset_input" aria-label="Показати">Показати</button>
+        </label> document.querySelector("label:has(input#fileset_input) button")
         <div id="control_btns"></div>
     </div>
     <div id="view"></div>
