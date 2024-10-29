@@ -15,7 +15,9 @@ body {
 	display: flex;
 }
 #view {
-	width: 100dvw !important;
+	height: 100dvh;
+	width: 100dvw;
+	align-items: center;
 	display: flex;
 	justify-content: center;
 }

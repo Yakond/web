@@ -28,7 +28,7 @@ exports = {};
 		
 		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
 		else showFileset(new_fileset)
-	})	
+	})
 
 	if (params.get("name")) showImage(params.get("name"))
 	if (params.get("set")) showFileset(params.get("set"));
@@ -36,6 +36,9 @@ exports = {};
 	function showImage(filename) {
 		if (!filename) alert("Filenamen't")
 		image_elem.setAttribute("src", `./assets/viewer/${filename}`)
+	}
+	function resetImage() {
+		
 	}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
@@ -93,6 +96,6 @@ exports = {};
 			updateUrl();
 		}	
 	}
-	exports = {getFileset, showImage, swapFilesetButtons, showFileset}
+	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
 
