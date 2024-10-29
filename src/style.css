@@ -41,7 +41,6 @@ body {
 @media (pointer: coarse) {
 	#control_btns > button[id^="picker"], #control > label > :is(input,button) {
 		padding: .35rem;
-		margin: .2rem;
 		height: 4rem;
 	}
 	#control > label {
