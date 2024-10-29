@@ -3,7 +3,7 @@
 	const params = new URLSearchParams(url.search);
 	let filename = params.get("name");
 	let fileset = params.get("set");
-	let filesets = await fetch("./assets/additionals.json").then(res=>res.json());
+	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const filesets_datalist = document.getElementById("filesets")
 	for (let key of Object.keys(filesets)) {
 		filesets_datalist.push()
