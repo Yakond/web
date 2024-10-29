@@ -34,7 +34,8 @@ exports = {};
 	if (params.get("set")) showFileset(params.get("set"));
 
 	function showImage(filename) {
-		view.style.backgroundImage = `url(./assets/viewer/${filename})`
+		if (!filename) alert("Filenamen't")
+		view.style.backgroundImage = `url('./assets/viewer/${filename}')`
 	}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
