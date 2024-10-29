@@ -61,7 +61,7 @@ body {
 }
 @media (pointer: coarse) {
 	#control_btns > button[id^="picker"], #control_btns > invalid, #control > label > div > :is(input,button) {
-		padding: .35rem;
+		padding: .5rem;
 		height: 4rem !important;
 		border-radius: 99999999999999999999999999999px;
 	}
