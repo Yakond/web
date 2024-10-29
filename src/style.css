@@ -60,7 +60,7 @@ body {
 	min-width: 17.5rem;
 }
 @media (pointer: coarse) {
-	#control_btns > button[id^="picker"], #control_btns > invalid, #control > label > div > :is(input,button) {
+	#control_btns > button[id^="btn"], #control_btns > invalid, #control > label > div > :is(input,button) {
 		padding: .5rem;
 		height: 4rem !important;
 		border-radius: 99999999999999999999999999999px;
@@ -90,7 +90,7 @@ body {
 		border-bottom-right-radius: 2px;
 	}
 }
-#control_btns > button[id^="picker"] {
+#control_btns > button[id^="btn"] {
 	padding: .25rem;
 	margin: .2rem;
 	height: 2rem;
@@ -98,7 +98,7 @@ body {
 	border-width: .1rem;
 }
 #control_btns > _ {
-	margin-block: .1rem;
+	margin: .1rem;
 }
 #control_btns > invalid {
 	border-color: red;
