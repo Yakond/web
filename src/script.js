@@ -8,6 +8,8 @@ const filesets_datalist = document.getElementById("filesets")
 const filesets_span = document.getElementById("fileset_choice")
 const fileset_input = document.getElementById("fileset_input");
 const fileset_button = document.querySelector("label:has(input#fileset_input) button");
+
+const waiter = document.querySelector(".waiter");
 exports = {};
 new_session = true;
 (async ()=>{
@@ -42,25 +44,14 @@ new_session = true;
 			image_elem.classList.remove("hidden");
 			image_elem.setAttribute("src", `./assets/viewer/${filename}`);
 		
-			// Remove the loading spinner if it exists
-			const waiter = document.querySelector(".lds-grid");
-			if (waiter) waiter.remove();
+			waiter.classList.add("hidden")
 		}
 		
 		function resetImage() {
-			// Clear the image and add hidden class
 			image_elem.setAttribute("src", "");
 			image_elem.classList.add("hidden");
 		
-			// Create and insert the loading spinner into the `view` element
-			const waiter = document.createElement("div");
-			waiter.classList.add("lds-grid");
-			waiter.innerHTML = `
-				<div></div><div></div><div></div>
-				<div></div><div></div><div></div>
-				<div></div><div></div><div></div>
-			`;
-			view.appendChild(waiter);
+			waiter.classList.remove("hidden")
 		}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
