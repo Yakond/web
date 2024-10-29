@@ -17,8 +17,8 @@
 		window.location.updateUrl(url)
 	}
 	const view = document.getElementById("view")
-	function showImage(filename, type) {
-		view.style.backgroundImage = `url(./assets/viewer/${filename}.${type})`
+	function showImage(filename) {
+		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
 	if (filename) showImage(filename)
 })()
