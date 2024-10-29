@@ -10,7 +10,7 @@ const fileset_input = document.getElementById("fileset_input");
 const fileset_button = document.querySelector("label:has(input#fileset_input) button");
 exports = {};
 (async ()=>{
-	const view = document.getElementById("view")
+	const image_elem = document.querySelector("#view > image")
 	const control_btns = document.getElementById("control_btns")
 
 	// get filesets
@@ -35,7 +35,7 @@ exports = {};
 
 	function showImage(filename) {
 		if (!filename) alert("Filenamen't")
-		view.style.backgroundImage = `url('./assets/viewer/${filename}')`
+		image_elem.setAttribute("src", `url('./assets/viewer/${filename}')`)
 	}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
