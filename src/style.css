@@ -31,6 +31,9 @@ body {
 		height: 20dvh !important;
 		flex-direction: row;
 	}
+	#control_btns {
+		flex-direction: row;
+	}
 }
 #control {
 	display: flex;
