@@ -1,6 +1,5 @@
 const url = new URL(window.location.href)
 const params = new URLSearchParams(url.search);
-let fileset = params.get("set");
 function updateUrl() {
 	url.search = params.toString();
 	window.history.pushState({}, '', url);
@@ -33,7 +32,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 	})	
 
 	if (params.get("name")) showImage(params.get("name"))
-	if (fileset) showFileset(fileset);
+	if (params.get("set")) showFileset(params.get("set"));
 
 	function showImage(filename) {
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
@@ -82,8 +81,8 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
     }
 	function showFileset(filesetName) {
 		filesets_span.innerText = filesetName || "Ніякий"
-		fileset = filesetName;
-		updateUrl({fileset});
+		params.set("set", filesetName);
+		updateUrl();
 		const filesetData = getFileset(filesetName)
 		if (filesetData?.buttons) {
 			swapFilesetButtons(filesetData.buttons, control_btns)
