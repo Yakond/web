@@ -25,7 +25,7 @@ body {
 }
 @media (max-width: 768px) and (orientation: portrait) {
     #view {
-		height: 80dvh !important;
+		max-height: 80dvh !important;
 	}
 	#control {
 		top: unset !important;
@@ -45,7 +45,11 @@ body {
 #control {
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: 0;min-width: 100dvw;
+	width: auto;
+}
+#control_btns {
+	min-width: 100%;
 }
 #control > label {
 	width: 15rem;
