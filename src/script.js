@@ -30,7 +30,8 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 		filesets_datalist.append(option)
 	}
 	fileset_button.addEventListener("click", () => {
-		control_btns.innerHTML = "";
+		if (!fileset_input.value) return;
+
 		const new_fileset = filesets[fileset_input.value];
 		
 		if (!new_fileset) return alert(`Пакета файлів під назвою <<${fileset_input.value}>> немає`)
@@ -46,6 +47,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
     function swapFilesetButtons(fileset_buttons, control) {
+		control.innerHTML = ""
 		if (fileset_buttons.length > 0) {
 		try {
 			control.append(document.createElement("_"))
@@ -87,7 +89,7 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 		}}
     }
 	function showFileset(filesetName) {
-		filesets_span.innerText = filesetName
+		filesets_span.innerText = filesetName || "Ніякий"
 		fileset = filesetName;
 		updateUrl({fileset});
 		const filesetData = getFileset(filesetName)
