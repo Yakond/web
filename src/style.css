@@ -56,6 +56,16 @@ body {
 	border-color: #6600ff;
 	border-width: .1rem;
 }
+#control > label {
+	> button {
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+	> input {
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+}
 #control_btns > button[id^="picker"] {
 	padding: .25rem;
 	margin: .2rem;
