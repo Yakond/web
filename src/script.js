@@ -1,7 +1,16 @@
-// Get the full URL
 const params = new URLSearchParams(new URL(window.location.href).search);
-
-// Example: Access specific parameter values
 const filename = params.get("filename");
+useImage(filename, "png")
+// const control = document.getElementById("control")
+const view = document.getElementById("view")
 
-alert(filename)
+const buttons = {
+    png: document.getElementById("btn/png"),
+    svg: document.getElementById("btn/svg")
+}
+function useImage(filename, type) {
+    view.style.backgroundImage = `url(./assets/${filename}.${type})`
+
+}
+buttons.png.addEventListener("click", () => useImage(filename, "png"))
+buttons.svg.addEventListener("click", () => useImage(filename, "svg"))
