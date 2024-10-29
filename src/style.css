@@ -18,14 +18,15 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-#control > button[id^="picker"] {
+#control_btns > button[id^="picker"] {
 	padding: .25rem;
 	margin: .2rem;
 	height: 2rem;
 }
-#control > _ {
+#control_btns > _ {
 	margin-block: .1rem;
 }
-#control > _ {
-	margin-block: .1rem;
+#control_btns > invalid {
+	border-color: red;
+	border-width: .05rem;
 }

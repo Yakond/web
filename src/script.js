@@ -21,8 +21,7 @@
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
 	if (filename) showImage(filename)
-})()
-function updateButtons() {
+    function updateButtons(fileset_buttons, control) {
 		if (fileset_buttons.length > 0) {
 		try {
 			control.append(document.createElement("_"))
@@ -62,5 +61,6 @@ function updateButtons() {
 		} catch (e) {
 			console.error(e)
 		}}
-	
-}
+    }
+	updateButtons(fileset_buttons, document.getElementById("control_btns"))
+})()
