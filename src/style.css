@@ -1,11 +1,16 @@
 * {
-	transition: all 0.25s ease-in;
-	-webkit-tap-highlight-color: transparent;
-	font-family: 'Noto Sans', sans-serif;
 	margin: 0;
 	padding: 0;
+	font-family: 'Noto Sans', sans-serif;
+	transition: all 0.25s ease-in;
+	-webkit-tap-highlight-color: transparent;
 }
-
+#control {
+	opacity: 1;
+}
+#control:hover {
+	opacity: 0;
+}
 body {
 	display: flex;
 }
