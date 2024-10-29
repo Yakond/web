@@ -1,23 +1,30 @@
 {
 	"pr1": {
 		"name": "ПР 1",
-		"default_file": "1.png",
+		"default_filename": "29.10/Галузі Психології.png",
 		"buttons": [{
-				"type": "#h2",
+				"type": "file",
 				"props": {
-					"label": "тест"
+					"filename": "29.10/Галузі Психології.png",
+					"label": "Галузі Психології (Зображення)"
 				}
 			},{
 				"type": "file",
 				"props": {
-					"filename": "1.png",
-					"label": "Зображення"
+					"filename": "29.10/Галузі Психології.svg",
+					"label": "Галузі Психології (Вектор)"
 				}
 			},{
 				"type": "file",
 				"props": {
-					"filename": "1.svg",
-					"label": "Векторне"
+					"filename": "29.10/Квадратний словник.png",
+					"label": "Квадратний словник (Зображення)"
+				}
+			},{
+				"type": "file",
+				"props": {
+					"filename": "29.10/Квадратний словник.svg",
+					"label": "Квадратний словник (Вектор)"
 				}
 			}
 		]

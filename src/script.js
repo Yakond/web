@@ -30,7 +30,6 @@
 	function showImage(filename) {
 		view.style.backgroundImage = `url(./assets/viewer/${filename})`
 	}
-	if (filename) showImage(filename)
     function addFilesetButtons(fileset_buttons, control) {
 		if (fileset_buttons.length > 0) {
 		try {
@@ -72,5 +71,9 @@
 			console.error(e)
 		}}
     }
-	addFilesetButtons(fileset_buttons, control_btns)
+	if (filename) showImage(filename)
+	if (fileset) {
+		addFilesetButtons(fileset_buttons, control_btns)
+		showImage(fileset.default_filename)
+	}
 })()
