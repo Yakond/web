@@ -23,5 +23,44 @@
 	if (filename) showImage(filename)
 })()
 function updateButtons() {
+		if (fileset_buttons.length > 0) {
+		try {
+			control.append(document.createElement("_"))
+			let i = 0;
+			for (let {type="invalid", props={}} of fileset_buttons) {
+				i++;
+				const el_type = type?.startsWith?.("#")
+				? type.slice(1, type.length)
+				: ["url", "file"].includes(type)
+					? "button"
+					: undefined
+				const button = document.createElement(el_type)
+				button.innerText = props?.label;
+				switch (type) {
+					case "file":
+						button.setAttribute("id", "btn/file/"+i)
+						button.addEventListener("click", () => {
+							filename = props?.url;
+							updateUrl();
+							showImage(filename);
+						})
+						break;
+					case "url":
+						button.setAttribute("id", "btn/url/"+i)
+						button.addEventListener("click", () => location.replace(props?.url));
+						break
+					default:
+						if (type !== undefined) break;
+						const div = document.createElement("invalid")
+						div.innerText = JSON.stringify({type,props}, 0, "\t")
+						div.innerHTML = div.innerHTML.replaceAll("\t", "&emsp;")
+						control.append(div)
+						continue;
+				}
+				control.append(button)
+			}
+		} catch (e) {
+			console.error(e)
+		}}
 	
 }
