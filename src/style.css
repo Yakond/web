@@ -66,6 +66,9 @@ body {
 		border-radius: 99999999999999999999999999999px;
 	}
 	#control > label {
+		> div > input {
+			padding-left: 1rem;
+		}
 		display: inlineflex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -85,7 +88,6 @@ body {
 		border-bottom-left-radius: 2px;
 	}
 	> input {
-		padding-left: 1rem;
 		border-top-right-radius: 2px;
 		border-bottom-right-radius: 2px;
 	}
