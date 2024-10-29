@@ -7,7 +7,6 @@
     const splitter = document.createElement("_")
     if (more_buttons.length > 0) {
         try {
-            splitter.setAttribute("id", "btn/splitter")
             control.append(splitter)
             let i = 0;
             for (const {type, filename, label} of more_buttons) {
