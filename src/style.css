@@ -24,8 +24,8 @@ body {
 		width: 100dvw !important;
 	}
 	#control {
-		top: unset;
-		bottom: 0;
+		top: unset !important;
+		bottom: 0 !important;
 	}
 }
 #control {
