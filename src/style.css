@@ -54,10 +54,10 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 17.5rem
+	width: 18rem
 }
 #control > label {
-	width: 17.5rem;
+	width: 18rem;
 }
 @media (pointer: coarse) {
 	#control_btns > button[id^="btn"], #control_btns > invalid, #control > label > div > :is(input,button) {
