@@ -54,10 +54,10 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 16.7rem
+	width: 17.5rem
 }
 #control > label {
-	min-width: 16.7rem;
+	min-width: 17.5rem;
 }
 @media (pointer: coarse) {
 	#control_btns > button[id^="picker"], #control_btns > invalid, #control > label > div > :is(input,button) {
