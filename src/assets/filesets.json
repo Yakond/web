@@ -1,0 +1,25 @@
+{
+	"pr1": {
+		"name": "ПР 1",
+		"default_file": "1.png",
+		"buttons": [{
+				"type": "#h2",
+				"props": {
+					"label": "тест"
+				}
+			},{
+				"type": "file",
+				"props": {
+					"filename": "1.png",
+					"label": "Зображення"
+				}
+			},{
+				"type": "file",
+				"props": {
+					"filename": "1.svg",
+					"label": "Векторне"
+				}
+			}
+		]
+	}
+}

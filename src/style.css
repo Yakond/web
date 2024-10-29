@@ -1,0 +1,31 @@
+* {
+	transition: all 0.25s ease-in;
+	-webkit-tap-highlight-color: transparent;
+	font-family: 'Noto Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+body {
+	display: flex;
+}
+#view {
+	height: 100dvh !important;
+	width: 95dvw !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#control {
+	display: flex;
+	flex-direction: column;
+}
+#control > button[id^="picker"] {
+	padding: .25rem;
+	margin: .2rem;
+	height: 2rem;
+}
+#control > _ {
+	margin-block: .1rem;
+}
+#control > _ {
+	margin-block: .1rem;
+}

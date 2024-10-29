@@ -1,53 +1,20 @@
 <!DOCTYPE html>
 <html lang="uk"><head>
-    <script preload defer src="./script.js"></script>
+    <title translate="no">сайт</title>
+    
+    <link rel="preload" href="./script.js" as="script">
+    <link preload href="./style.css" rel="stylesheet">
 
     <link preload href="https://fonts.googleapis.com/css2?family=Noto+Sans&amp;family=Noto+Sans:wght@300&amp;display=swap" rel="stylesheet">
     <meta content="origin" name="referrer">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta charset="utf-8">
     <meta name="color-scheme" content="dark light">
-    <title translate="no">сайт</title>
-    <style>
-        * {
-            transition: all 0.25s ease-in;
-            -webkit-tap-highlight-color: transparent;
-            font-family: 'Noto Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            display: flex;
-        }
-        #view {
-            height: 100dvh !important;
-            width: 95dvw !important;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        #control {
-            display: flex;flex-direction: column;
-        }
-        #control > button[id^="picker"] {
-            padding: .25rem;margin: .2rem;height: 2rem;
-        }
-        #control > _ {
-            margin-block: .1rem;
-        }
-        #control > _ {
-            margin-block: .1rem;
-        }
-    </style>
 </head>
 
 <body>
-    <div id="control">
-        <button id="btn/picker/png">.png</button>
-        <button id="btn/picker/svg">.svg</button>
-
-    </div>
-    <div id="view"></div>
+    Вас буде незабаром перенаправлено.
+    <script>
+        window.location.href = 'file.html';
+    </script>
 </body>
-
-
-

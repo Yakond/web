@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk"><head>
+    <title translate="no">перегляд</title>
+
+    <script preload defer src="./script.js"></script>
+    <link preload href="./style.css" rel="stylesheet">
+
+    <link preload href="https://fonts.googleapis.com/css2?family=Noto+Sans&amp;family=Noto+Sans:wght@300&amp;display=swap" rel="stylesheet">
+    <meta content="origin" name="referrer">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="dark light">
+</head>
+
+<body>
+    <div id="control">
+        <label for="fileset_input">
+            Обраний пакет файлів: <span id="fileset_choice">Ніякий</span>
+            <input type="text" id="fileset_input" placeholder="Оберіть щось..." autocapitalize="off" list="filesets">
+            <datalist id="filesets">
+            </datalist>
+            <button onclick="displayInput()" aria-controls="fileset_input" aria-label="Показати">Показати</button>
+        </label>
+    </div>
+    <div id="view"></div>
+</body>
+
+
+

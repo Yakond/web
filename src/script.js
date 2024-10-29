@@ -1,15 +1,24 @@
 (async ()=>{
-	const params = new URLSearchParams(new URL(window.location.href).search);
-	const filename = params.get("filename");
-	let additional_nav = await fetch("./assets/additionals.json").then(res=>res.json());
-
+	const url = new URL(window.location.href)
+	const params = new URLSearchParams(url.search);
+	let filename = params.get("name");
+	let fileset = params.get("set");
+	let filesets = await fetch("./assets/additionals.json").then(res=>res.json());
+	const filesets_datalist = document.getElementById("filesets")
+	for (let key of Object.keys(filesets)) {
+		filesets_datalist.push()
+	}
 	const control = document.getElementById("control")
 	const splitter = document.createElement("_")
-	if (additional_nav.length > 0) {
+	function updateUrl(){
+		url.params = params;
+		window.location.updateUrl(url)
+	}
+	if (fileset_buttons.length > 0) {
 		try {
 			control.append(splitter)
 			let i = 0;
-			for (let {type="invalid", props={}} of additional_nav) {
+			for (let {type="invalid", props={}} of fileset_buttons) {
 				i++;
 				const el_type = type?.startsWith?.("#")
 				? type.slice(1, type.length)
@@ -21,7 +30,10 @@
 				switch (type) {
 					case "file":
 						button.setAttribute("id", "btn/file/"+i)
-						button.addEventListener("click", () => (filename = props?.url, showImage(props?.filename, "png")));
+						button.addEventListener("click", () => {
+							filename = props?.url;
+							showImage(filename);
+						})
 						break;
 					case "url":
 						button.setAttribute("id", "btn/url/"+i)
@@ -45,7 +57,7 @@
 	function showImage(filename, type) {
 		view.style.backgroundImage = `url(./assets/viewer/${filename}.${type})`
 	}
-	showImage(filename, "png")
+	showImage(filename, filetype)
 	const buttons = {
 		png: document.getElementById("btn/picker/png"),
 		svg: document.getElementById("btn/picker/svg")
