@@ -38,11 +38,11 @@ body {
 		top: unset !important;
 		bottom: 0 !important;
 		height: max(15rem, 15dvh) !important;
-		flex-direction: row !important;
 		width: 100dvw;
 	}
 	#control_btns {
 		flex-direction: row !important;
+		gap: 1rem;
 	}
 }
 
@@ -62,7 +62,7 @@ body {
 @media (pointer: coarse) {
 	#control_btns > button[id^="picker"], #control_btns > invalid, #control > label > div > :is(input,button) {
 		padding: .35rem;
-		height: 4rem;
+		height: 4rem !important;
 		border-radius: 99999999999999999999999999999px;
 	}
 	#control > label {
