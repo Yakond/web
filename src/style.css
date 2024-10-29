@@ -105,31 +105,8 @@ body {
 
 
 
-.lds-grid {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 80px;
-	height: 80px;
-	margin: auto;
-}
-
-.lds-grid div {
-	width: 16px;
-	height: 16px;
-	background-color: #333;
-	margin: 4px;
-	border-radius: 4px;
-	animation: lds-grid 1.2s infinite ease-in-out;
-}
-
-@keyframes lds-grid {
-	0%, 100% { opacity: 1; }
-	50% { opacity: 0.3; }
-}
-  
 /* From https://loading.io/css/ */
-/*.lds-grid,
+.lds-grid,
 .lds-grid div {
   box-sizing: border-box;
 }
@@ -200,5 +177,3 @@ body {
     opacity: 0.5;
   }
 }
-
-*/
