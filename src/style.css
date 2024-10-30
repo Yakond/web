@@ -112,7 +112,7 @@ body {
 
 
 /* From https://loading.io/css/ SLIGHTLY**** modified */
-.lds-grid {
+.waiter {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -121,25 +121,25 @@ body {
 	height: 3rem;
   }
   
-  .lds-grid div {
+  .waiter div {
 	width: 1rem;
 	height: 1rem;
 	background: currentColor;
-	animation: lds-grid 3s linear infinite;
+	animation: waiter 3s linear infinite;
 	filter: blur(4px);
   }
   
-  .lds-grid div:nth-child(1) { animation-delay: 0s; }
-  .lds-grid div:nth-child(2) { animation-delay: 2s; }
-  .lds-grid div:nth-child(3) { animation-delay: 1s; }
-  .lds-grid div:nth-child(4) { animation-delay: 2s; }
-  .lds-grid div:nth-child(5) { animation-delay: 1s; }
-  .lds-grid div:nth-child(6) { animation-delay: 2s; }
-  .lds-grid div:nth-child(7) { animation-delay: 1s; }
-  .lds-grid div:nth-child(8) { animation-delay: 2s; }
-  .lds-grid div:nth-child(9) { animation-delay: 3s; }
+  .waiter div:nth-child(1) { animation-delay: 0s; }
+  .waiter div:nth-child(2) { animation-delay: 2s; }
+  .waiter div:nth-child(3) { animation-delay: 1s; }
+  .waiter div:nth-child(4) { animation-delay: 2s; }
+  .waiter div:nth-child(5) { animation-delay: 1s; }
+  .waiter div:nth-child(6) { animation-delay: 2s; }
+  .waiter div:nth-child(7) { animation-delay: 1s; }
+  .waiter div:nth-child(8) { animation-delay: 2s; }
+  .waiter div:nth-child(9) { animation-delay: 3s; }
   
-  @keyframes lds-grid {
+  @keyframes waiter {
 	0%, 100% {
 	  opacity: 0.75;
 	}
