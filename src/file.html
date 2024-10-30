@@ -10,7 +10,6 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta charset="utf-8">
     <meta name="color-scheme" content="dark">
-    <datalist id="filesets"></datalist>
 </head>
 
 <body>
@@ -19,6 +18,7 @@
             <h5>Обраний пакет файлів: <span id="fileset_choice">Ніякий</span></h5>
             <div>
                 <input type="text" id="fileset_input" placeholder="Оберіть щось..." autocapitalize="off" list="filesets">
+                <datalist id="filesets"></datalist>
                 <button aria-controls="fileset_input" aria-label="Показати">Показати</button>
             </div>
         </label>
