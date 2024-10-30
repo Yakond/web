@@ -29,8 +29,11 @@ new_session = true;
 
 		const new_fileset = fileset_input.value;
 		
-		if (!new_fileset) return alert(`Пакета файлів з назвою <<${fileset_input.value}>> немає`)
-		else showFileset(new_fileset)
+		if (!new_fileset) {
+			return alert(`Пакета файлів під назвою «${fileset_input.value}» немає`)
+		} else {
+			return showFileset(new_fileset)
+		}
 	})
 
 	if (params.get("set")) showFileset(params.get("set"));
