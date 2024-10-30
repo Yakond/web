@@ -21,13 +21,13 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+.hidden {
+	opacity: 0;
+}
 #view > img {
 	max-height: 100dvh;
 	max-width: 100dvw;
-
-	.hidden {
-		opacity: 0;
-	}
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
