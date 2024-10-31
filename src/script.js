@@ -104,12 +104,6 @@ exports = {};
 		}}
     }
 	function showFileset(filesetName) {
-		for (let i = 0; i < fileset_select.options.length; i++) {
-			if (fileset_select.options[i].getAttribute("value") === filesetName) {
-				fileset_select.selectedIndex = i;
-				break;
-			}
-		}
 		const filesetData = getFileset(filesetName)
 		swapFilesetButtons(filesetData?.buttons || [], control_btns)
 
@@ -125,6 +119,12 @@ exports = {};
 
 		params.set("set", filesetName || null);
 		updateUrl();
+		for (let i = 0; i < fileset_select.options.length; i++) {
+			if (fileset_select.options[i].getAttribute("value") === filesetName) {
+				fileset_select.selectedIndex = i;
+				break;
+			}
+		}
 	}
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
