@@ -34,8 +34,8 @@ exports = {};
 		(optgroup||fileset_select).append(option);
 	}
 	fileset_select.addEventListener("change", ({target:{value:new_fileset}}) => {	
-		if (new_fileset === "Ніякий") return;	
 		if (!getFileset(new_fileset)) {
+			console.log(new_fileset)
 			fileset_select.selectedIndex = 0
 			return alert(`Пакета файлів під назвою «${fileset_select.value}» немає`)
 		}
@@ -118,7 +118,7 @@ exports = {};
 			showImage(params.get("name"))
 		}
 
-		params.set("set", filesetName);
+		params.set("set", filesetName || null);
 		updateUrl();
 	}
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
