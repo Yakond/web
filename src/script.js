@@ -97,19 +97,19 @@ exports = {};
 		}}
     }
 	function showFileset(filesetName) {
-		filesets_span.innerText = filesetName || "Ніякий"
-		params.set("set", filesetName);
-		updateUrl();
 
 		const filesetData = getFileset(filesetName)
 		if (filesetData?.buttons) {
 			swapFilesetButtons(filesetData.buttons, control_btns)
 		}
-		if (filesetData?.default_filename) {
+		if ((params.get("set") !== filesetName && params.get("name") !== filesetData?.default_filename) && filesetData?.default_filename) {
 			params.set("name", filesetData.default_filename);
 			showImage(params.get("name"))
-			updateUrl();
 		}
+
+		filesets_span.innerText = filesetName || "Ніякий"
+		params.set("set", filesetName);
+		updateUrl();
 	}
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
