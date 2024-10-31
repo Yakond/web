@@ -1,6 +1,11 @@
 const url = new URL(window.location.href)
 const params = new URLSearchParams(url.search);
 function updateUrl() {
+    for (const [key, value] of params.entries()) {
+        if (value === null) {
+            params.delete(key);
+		}	
+	}
 	url.search = params.toString();
 	window.history.pushState({}, '', url);
 }
