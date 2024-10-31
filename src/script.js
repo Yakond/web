@@ -129,18 +129,18 @@ exports = {};
 				for (let j = 0; j < child.children.length; j++) {
 					const option = child.children[j];
 					if (option.getAttribute("value") === filesetName) {
-						fileset_select.selectedIndex = index;
+						fileset_select.selectedIndex = i;
 						return;
 					}
-					index++;
+					i++;
 				}
 			} else if (child.tagName === "OPTION") {
 				// If it's a direct <option> (not inside an <optgroup>)
 				if (child.getAttribute("value") === filesetName) {
-					fileset_select.selectedIndex = index;
+					fileset_select.selectedIndex = i;
 					return;
 				}
-				index++;
+				i++;
 			}
 		}
 	}
