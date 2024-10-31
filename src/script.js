@@ -34,9 +34,8 @@ exports = {};
 			return showFileset(new_fileset)
 		}
 	})
-
+	if (params.get("name")) showImage(params.get("name"));
 	if (params.get("set")) showFileset(params.get("set"));
-	if (params.get("name")) showImage(params.get("name"))
 
 		function showImage(filename) {
 			if (!filename) {
