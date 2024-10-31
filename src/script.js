@@ -35,17 +35,13 @@ exports = {};
 		option.innerText = filesets?.[key]?.label || name || key;
 		(optgroup||fileset_select).append(option);
 	}
-	fileset_button.addEventListener("click", () => {
-		if (!fileset_select.value) return;
-
-		const new_fileset = fileset_select.value;
-		
-		if (!new_fileset) {
-			if (new_fileset === "Ніякий") return;
+	fileset_select.addEventListener("change", ({target:{value:new_fileset}}) => {	
+		if (new_fileset === "Ніякий") return;	
+		if (!getFileset(new_fileset)) {
+			fileset_select.selectedIndex = 0
 			return alert(`Пакета файлів під назвою «${fileset_select.value}» немає`)
-		} else {
-			return showFileset(new_fileset)
 		}
+		return showFileset(new_fileset)
 	})
 	if (params.get("name")) showImage(params.get("name"));
 	if (params.get("set")) showFileset(params.get("set"));
