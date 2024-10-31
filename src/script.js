@@ -39,7 +39,7 @@ exports = {};
 		(optgroup||fileset_select).append(option);
 	}
 	fileset_select.addEventListener("change", () => {	
-		let new_fileset = fileset_select.getAttribute("value");
+		let new_fileset = fileset_select.options[fileset_select.selectedIndex].getAttribute("value");
 		if (new_fileset === "null") new_fileset = null;
 		if (!getFileset(new_fileset) && new_fileset !== null) {
 			fileset_select.selectedIndex = 0
