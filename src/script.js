@@ -31,7 +31,7 @@ exports = {};
 
 		const option = document.createElement("option");
 		option.setAttribute("value", key);
-		option.innerText = filesets?.[key]?.label || name;
+		option.innerText = filesets?.[key]?.label || name || key;
 		(optgroup||fileset_select).append(option);
 	}
 	fileset_button.addEventListener("click", () => {
