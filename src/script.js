@@ -125,7 +125,7 @@ exports = {};
 
 		params.set("set", filesetName || null);
 		updateUrl();
-		for (let i = 0; i < fileset_select.children.length; i++) {
+		if (filesetName !== null) for (let i = 0; i < fileset_select.children.length; i++) {
 			const child = fileset_select.children[i];
 	
 			// Check if the child is an <optgroup>
