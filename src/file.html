@@ -14,12 +14,11 @@
 
 <body>
     <div id="control">
-        <label for="fileset_input">
+        <label for="fileset_select">
             <h5>Обраний пакет файлів: <span id="fileset_choice">Ніякий</span></h5>
             <div>
-                <input type="text" id="fileset_input" placeholder="Оберіть щось..." autocapitalize="off" list="filesets">
-                <datalist id="filesets"></datalist>
-                <button aria-controls="fileset_input" aria-label="Показати">Показати</button>
+                <select type="text" id="fileset_select" placeholder="Оберіть щось...">
+                <button aria-controls="fileset_select" aria-label="Показати">Показати</button>
             </div>
         </label>
         <div id="control_btns"></div>

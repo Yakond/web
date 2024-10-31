@@ -4,10 +4,9 @@ function updateUrl() {
 	url.search = params.toString();
 	window.history.pushState({}, '', url);
 }
-const filesets_datalist = document.getElementById("filesets")
 const filesets_span = document.getElementById("fileset_choice")
-const fileset_input = document.getElementById("fileset_input");
-const fileset_button = document.querySelector("label:has(input#fileset_input) button");
+const fileset_select = document.getElementById("fileset_select");
+const fileset_button = document.querySelector("label:has(#fileset_select) button");
 
 const waiter = document.querySelector(".waiter");
 exports = {};
@@ -18,18 +17,30 @@ exports = {};
 	// get filesets
 	let filesets = await fetch("./assets/filesets.json").then(res=>res.json());
 	const getFileset = (fileset) => filesets[fileset]
+	let optgroup;
 	for (let key of Object.keys(filesets)) {
+		let split = key.split(" / ");
+		let name = undefined
+		if (split.length > 1) {
+			name = split[1];
+			if (optgroup?.label !== split[0]) {
+				optgroup = document.createElement("optgroup")
+				optgroup.label = split[0]
+			}
+		} else optgroup = undefined
+
 		const option = document.createElement("option")
 		option.setAttribute("value", key)
-		filesets_datalist.append(option)
+		option.innerText = filesets?.[key]?.label || name
+		(optgroup||fileset_select).append(option)
 	}
 	fileset_button.addEventListener("click", () => {
-		if (!fileset_input.value) return;
+		if (!fileset_select.value) return;
 
-		const new_fileset = fileset_input.value;
+		const new_fileset = fileset_select.value;
 		
 		if (!new_fileset) {
-			return alert(`Пакета файлів під назвою «${fileset_input.value}» немає`)
+			return alert(`Пакета файлів під назвою «${fileset_select.value}» немає`)
 		} else {
 			return showFileset(new_fileset)
 		}
