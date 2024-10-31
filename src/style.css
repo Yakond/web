@@ -60,13 +60,13 @@ body {
 	width: 18rem;
 }
 @media (pointer: coarse) {
-	#control_btns > button[id^="btn"], #control_btns > invalid, #control > label > div > :is(input,button) {
+	#control_btns > button[id^="btn"], #control_btns > invalid, #control > label > div > :is(select,button) {
 		padding: .5rem;
 		height: 4rem !important;
 		border-radius: 99999999999999999999999999999px;
 	}
 	#control > label {
-		> div > input {
+		> div > select {
 			padding-left: 1rem;
 		}
 		display: inlineflex;
@@ -78,7 +78,7 @@ body {
 		overflow-x: scroll;
 	}
 }
-#control > label > div > :is(input,button) {
+#control > label > div > :is(select,button) {
 	border-color: #6600ff;
 	border-width: .1rem;
 }
@@ -87,7 +87,7 @@ body {
 		border-top-left-radius: 2px;
 		border-bottom-left-radius: 2px;
 	}
-	> input {
+	> select {
 		border-top-right-radius: 2px;
 		border-bottom-right-radius: 2px;
 	}
