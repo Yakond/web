@@ -4,9 +4,7 @@ function updateUrl() {
 	url.search = params.toString();
 	window.history.pushState({}, '', url);
 }
-const filesets_span = document.getElementById("fileset_choice")
 const fileset_select = document.getElementById("fileset_select");
-const fileset_button = document.querySelector("label:has(#fileset_select) button");
 
 const waiter = document.querySelector(".waiter");
 exports = {};
@@ -120,7 +118,6 @@ exports = {};
 			showImage(params.get("name"))
 		}
 
-		filesets_span.innerText = filesetName || "Ніякий"
 		params.set("set", filesetName);
 		updateUrl();
 	}
