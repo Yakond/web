@@ -120,10 +120,27 @@ exports = {};
 
 		params.set("set", filesetName || null);
 		updateUrl();
-		for (let i = 0; i < fileset_select.options.length; i++) {
-			if (fileset_select.options[i].getAttribute("value") === filesetName) {
-				fileset_select.selectedIndex = i;
-				break;
+		for (let i = 0; i < fileset_select.children.length; i++) {
+			const child = fileset_select.children[i];
+	
+			// Check if the child is an <optgroup>
+			if (child.tagName === "OPTGROUP") {
+				// Loop through each <option> inside the <optgroup>
+				for (let j = 0; j < child.children.length; j++) {
+					const option = child.children[j];
+					if (option.getAttribute("value") === filesetName) {
+						fileset_select.selectedIndex = index;
+						return;
+					}
+					index++;
+				}
+			} else if (child.tagName === "OPTION") {
+				// If it's a direct <option> (not inside an <optgroup>)
+				if (child.getAttribute("value") === filesetName) {
+					fileset_select.selectedIndex = index;
+					return;
+				}
+				index++;
 			}
 		}
 	}
