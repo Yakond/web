@@ -101,7 +101,12 @@ exports = {};
 		const filesetData = getFileset(filesetName)
 		swapFilesetButtons(filesetData?.buttons || [], control_btns)
 
-		if ((params.get("set") !== filesetName && params.get("name") !== filesetData?.default_filename) && filesetData?.default_filename) {
+		if (	(
+					(params.get("set") !== filesetName && params.get("name") !== filesetData?.default_filename) // Файлсет обраний з першої сторінки, файл не вказаний в посиланні
+				||	(params.get("set") === filesetName && params.get("name") === null) // Цей файлсет вже був обраний (відкрито з посилання), але немає імені (в посиланні)
+				) 
+			&& filesetData?.default_filename
+		) {
 			params.set("name", filesetData.default_filename);
 			showImage(params.get("name"))
 		}
