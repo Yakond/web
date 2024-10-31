@@ -11,7 +11,6 @@ const fileset_button = document.querySelector("label:has(input#fileset_input) bu
 
 const waiter = document.querySelector(".waiter");
 exports = {};
-new_session = true;
 (async ()=>{
 	const image_elem = document.querySelector("#view > img")
 	const control_btns = document.getElementById("control_btns")
@@ -37,7 +36,7 @@ new_session = true;
 	})
 
 	if (params.get("set")) showFileset(params.get("set"));
-	if (new_session && params.get("name")) showImage(params.get("name"))
+	if (params.get("name")) showImage(params.get("name"))
 
 		function showImage(filename) {
 			if (!filename) {
@@ -106,15 +105,13 @@ new_session = true;
 		if (filesetData?.buttons) {
 			swapFilesetButtons(filesetData.buttons, control_btns)
 		}
-		if (!new_session && filesetData?.default_filename) {
+		if (!params.get("name") && filesetData?.default_filename) {
 			params.set("name", filesetData.default_filename);
 			showImage(params.get("name"))
 			updateUrl();
 		}
 
 	}
-
-	new_session = false;
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
 
