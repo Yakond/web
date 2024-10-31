@@ -99,9 +99,8 @@ exports = {};
 	function showFileset(filesetName) {
 
 		const filesetData = getFileset(filesetName)
-		if (filesetData?.buttons) {
-			swapFilesetButtons(filesetData.buttons, control_btns)
-		}
+		swapFilesetButtons(filesetData?.buttons || [], control_btns)
+
 		if ((params.get("set") !== filesetName && params.get("name") !== filesetData?.default_filename) && filesetData?.default_filename) {
 			params.set("name", filesetData.default_filename);
 			showImage(params.get("name"))
