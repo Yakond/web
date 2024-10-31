@@ -44,23 +44,23 @@ exports = {};
 	if (params.get("name")) showImage(params.get("name"));
 	if (params.get("set")) showFileset(params.get("set"));
 
-		function showImage(filename) {
-			if (!filename) {
-				resetImage();
-				return alert("Filename not provided");
-			}
-			image_elem.classList.remove("hidden");
-			image_elem.setAttribute("src", `./assets/viewer/${filename}`);
-		
-			waiter.classList.add("hidden")
+	function showImage(filename) {
+		if (!filename) {
+			resetImage();
+			return alert("Filename not provided");
 		}
-		
-		function resetImage() {
-			image_elem.setAttribute("src", "");
-			image_elem.classList.add("hidden");
-		
-			waiter.classList.remove("hidden")
-		}
+		image_elem.classList.remove("hidden");
+		image_elem.setAttribute("src", `./assets/viewer/${filename}`);
+	
+		waiter.classList.add("hidden")
+	}
+	
+	function resetImage() {
+		image_elem.setAttribute("src", "");
+		image_elem.classList.add("hidden");
+	
+		waiter.classList.remove("hidden")
+	}
     function swapFilesetButtons(fileset_buttons, control) {
 		control.innerHTML = ""
 		if (fileset_buttons.length > 0) {
@@ -104,7 +104,12 @@ exports = {};
 		}}
     }
 	function showFileset(filesetName) {
-
+		for (let i = 0; i < fileset_select.options.length; i++) {
+			if (fileset_select.options[i].getAttribute("value") === filesetName) {
+				fileset_select.selectedIndex = i;
+				break;
+			}
+		}
 		const filesetData = getFileset(filesetName)
 		swapFilesetButtons(filesetData?.buttons || [], control_btns)
 
