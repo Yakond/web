@@ -20,19 +20,19 @@ exports = {};
 	let optgroup;
 	for (let key of Object.keys(filesets)) {
 		let split = key.split(" / ");
-		let name = undefined
+		let name = undefined;
 		if (split.length > 1) {
 			name = split[1];
 			if (optgroup?.label !== split[0]) {
-				optgroup = document.createElement("optgroup")
-				optgroup.label = split[0]
+				optgroup = document.createElement("optgroup");
+				optgroup.label = split[0];
 			}
-		} else optgroup = undefined
+		} else optgroup = undefined;
 
-		const option = document.createElement("option")
-		option.setAttribute("value", key)
-		option.innerText = filesets?.[key]?.label || name
-		(optgroup||fileset_select).append(option)
+		const option = document.createElement("option");
+		option.setAttribute("value", key);
+		option.innerText = filesets?.[key]?.label || name;
+		(optgroup||fileset_select).append(option);
 	}
 	fileset_button.addEventListener("click", () => {
 		if (!fileset_select.value) return;
