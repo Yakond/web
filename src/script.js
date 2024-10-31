@@ -33,9 +33,9 @@ exports = {};
 		option.innerText = filesets?.[key]?.label || name || key;
 		(optgroup||fileset_select).append(option);
 	}
-	fileset_select.addEventListener("change", ({target:{value:new_fileset}}) => {	
-		if (!getFileset(new_fileset)) {
-			console.log(new_fileset)
+	fileset_select.addEventListener("change", () => {	
+		const new_fileset = fileset_select.getAttribute("value");
+		if (!getFileset(new_fileset) && new_fileset !== null) {
 			fileset_select.selectedIndex = 0
 			return alert(`Пакета файлів під назвою «${fileset_select.value}» немає`)
 		}
