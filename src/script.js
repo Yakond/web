@@ -26,6 +26,7 @@ exports = {};
 			if (optgroup?.label !== split[0]) {
 				optgroup = document.createElement("optgroup");
 				optgroup.label = split[0];
+				fileset_select.append(optgroup)
 			}
 		} else optgroup = undefined;
 
