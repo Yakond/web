@@ -41,6 +41,7 @@ exports = {};
 		const new_fileset = fileset_select.value;
 		
 		if (!new_fileset) {
+			if (new_fileset === "Ніякий") return;
 			return alert(`Пакета файлів під назвою «${fileset_select.value}» немає`)
 		} else {
 			return showFileset(new_fileset)
