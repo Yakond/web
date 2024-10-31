@@ -113,6 +113,8 @@ new_session = true;
 		}
 
 	}
+
+	new_session = false;
 	exports = {getFileset, showImage, swapFilesetButtons, showFileset, resetImage}
 })()
 
